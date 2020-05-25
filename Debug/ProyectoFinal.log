@@ -1,13 +1,4 @@
 ﻿  main.cpp
-C:\Users\usuario\Desktop\openGLroot\ProyectoFinal\ProyectoFinal\main.cpp(18,32): warning C4305: 'initializing': truncation from 'double' to 'GLfloat'
-C:\Users\usuario\Desktop\openGLroot\ProyectoFinal\ProyectoFinal\main.cpp(44,1): error C2601: 'Keyboard': local function definitions are illegal
-C:\Users\usuario\Desktop\openGLroot\ProyectoFinal\ProyectoFinal\main.cpp(28): message : this line contains a '{' which has not yet been matched
-C:\Users\usuario\Desktop\openGLroot\ProyectoFinal\ProyectoFinal\main.cpp(63,1): error C2601: 'Triad': local function definitions are illegal
-C:\Users\usuario\Desktop\openGLroot\ProyectoFinal\ProyectoFinal\main.cpp(28): message : this line contains a '{' which has not yet been matched
-C:\Users\usuario\Desktop\openGLroot\ProyectoFinal\ProyectoFinal\main.cpp(85,1): error C2601: 'Draw_Box': local function definitions are illegal
-C:\Users\usuario\Desktop\openGLroot\ProyectoFinal\ProyectoFinal\main.cpp(28): message : this line contains a '{' which has not yet been matched
-C:\Users\usuario\Desktop\openGLroot\ProyectoFinal\ProyectoFinal\main.cpp(118,1): error C2601: 'redraw': local function definitions are illegal
-C:\Users\usuario\Desktop\openGLroot\ProyectoFinal\ProyectoFinal\main.cpp(28): message : this line contains a '{' which has not yet been matched
-C:\Users\usuario\Desktop\openGLroot\ProyectoFinal\ProyectoFinal\main.cpp(149,1): error C2601: 'main': local function definitions are illegal
-C:\Users\usuario\Desktop\openGLroot\ProyectoFinal\ProyectoFinal\main.cpp(28): message : this line contains a '{' which has not yet been matched
-C:\Users\usuario\Desktop\openGLroot\ProyectoFinal\ProyectoFinal\main.cpp(28): fatal error C1075: '{': no matching token found
+C:\Users\usuario\Desktop\openGLroot\ProyectoFinal\ProyectoFinal\main.cpp(56,22): warning C4244: 'argument': conversion from 'float' to 'GLint', possible loss of data
+C:\Users\usuario\Desktop\openGLroot\ProyectoFinal\ProyectoFinal\main.cpp(56,16): warning C4244: 'argument': conversion from 'float' to 'GLint', possible loss of data
+  ProyectoFinal.vcxproj -> C:\Users\usuario\Desktop\openGLroot\ProyectoFinal\Debug\ProyectoFinal.exe
