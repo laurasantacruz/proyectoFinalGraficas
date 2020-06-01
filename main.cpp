@@ -7,7 +7,7 @@
 #define SCREEN_HEIGHT 900
 
 void keyCallback(GLFWwindow* window, int key, int scancode, int action, int mods);
-void DrawCube(GLfloat centerPosX, GLfloat centerPosY, GLfloat centerPosZ, GLfloat edgeLength);
+//void DrawCube(GLfloat centerPosX, GLfloat centerPosY, GLfloat centerPosZ, GLfloat edgeLength);
 void DrawCube2(GLfloat centerPosX, GLfloat centerPosY, GLfloat centerPosZ, GLfloat edgeLength);
 void DrawCube3(GLfloat centerPosX, GLfloat centerPosY, GLfloat centerPosZ, GLfloat edgeLength);
 void DrawCuarto(GLfloat centerPosX, GLfloat centerPosY, GLfloat centerPosZ, GLfloat edgeLength);
@@ -89,10 +89,10 @@ int main(void)
         glTranslatef(-halfScreenWidth, -halfScreenHeight, 500);
 
 
-        DrawCube3(halfScreenWidth, halfScreenHeight-200, -500, 200);
-        DrawCube2(halfScreenWidth, halfScreenHeight-200, -500, 200);
+        DrawCube3(halfScreenWidth-100, halfScreenHeight-200, -600, 200);
+        DrawCube2(halfScreenWidth-100, halfScreenHeight-200, -600, 200);
         DrawCuarto(halfScreenWidth, halfScreenHeight, -600, 600);
-        DrawPuerta(halfScreenWidth, halfScreenHeight-200, -600, 600);
+        DrawPuerta(halfScreenWidth, halfScreenHeight-200, -374, 250);
 
 
         glPopMatrix();
@@ -224,8 +224,8 @@ void DrawPuerta(GLfloat centerPosX, GLfloat centerPosY, GLfloat centerPosZ, GLfl
 
     GLfloat vertices[] =
     {
-        centerPosX - halfSideLength + 50, centerPosY  , centerPosZ + 70, // Arriba Izquierda
-        centerPosX + halfSideLength - 50, centerPosY , centerPosZ + 70, // Arriba Derecha
+        centerPosX - halfSideLength + 50, centerPosY + 125  , centerPosZ + 70, // Arriba Izquierda
+        centerPosX + halfSideLength - 50, centerPosY +125, centerPosZ + 70, // Arriba Derecha
         centerPosX + halfSideLength - 50, centerPosY - 100, centerPosZ + 70, // Abajo Derecha
         centerPosX - halfSideLength + 50, centerPosY - 100, centerPosZ + 70, // Abajo Izquierda
     };
