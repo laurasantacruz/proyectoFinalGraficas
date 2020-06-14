@@ -1,4 +1,11 @@
 ﻿  main.cpp
-C:\Users\usuario\Desktop\openGLroot\ProyectoFinal\ProyectoFinal\main.cpp(59,22): warning C4244: 'argument': conversion from 'float' to 'GLint', possible loss of data
-C:\Users\usuario\Desktop\openGLroot\ProyectoFinal\ProyectoFinal\main.cpp(59,16): warning C4244: 'argument': conversion from 'float' to 'GLint', possible loss of data
+C:\Users\usuario\Desktop\openGLroot\ProyectoFinal\ProyectoFinal\main.cpp(90,22): warning C4244: 'argument': conversion from 'float' to 'GLint', possible loss of data
+C:\Users\usuario\Desktop\openGLroot\ProyectoFinal\ProyectoFinal\main.cpp(90,16): warning C4244: 'argument': conversion from 'float' to 'GLint', possible loss of data
+C:\Users\usuario\Desktop\openGLroot\ProyectoFinal\ProyectoFinal\main.cpp(186,29): warning C4305: '+=': truncation from 'double' to 'GLfloat'
+C:\Users\usuario\Desktop\openGLroot\ProyectoFinal\ProyectoFinal\main.cpp(187,29): warning C4305: '+=': truncation from 'double' to 'GLfloat'
+C:\Users\usuario\Desktop\openGLroot\ProyectoFinal\ProyectoFinal\main.cpp(188,29): warning C4305: '+=': truncation from 'double' to 'GLfloat'
+C:\Users\usuario\Desktop\openGLroot\ProyectoFinal\ProyectoFinal\main.cpp(191,29): warning C4305: '-=': truncation from 'double' to 'GLfloat'
+C:\Users\usuario\Desktop\openGLroot\ProyectoFinal\ProyectoFinal\main.cpp(192,29): warning C4305: '-=': truncation from 'double' to 'GLfloat'
+C:\Users\usuario\Desktop\openGLroot\ProyectoFinal\ProyectoFinal\main.cpp(193,29): warning C4305: '-=': truncation from 'double' to 'GLfloat'
+C:\Users\usuario\Desktop\openGLroot\ProyectoFinal\ProyectoFinal\main.cpp(567,34): warning C4305: 'initializing': truncation from 'double' to 'GLfloat'
   ProyectoFinal.vcxproj -> C:\Users\usuario\Desktop\openGLroot\ProyectoFinal\Debug\ProyectoFinal.exe
