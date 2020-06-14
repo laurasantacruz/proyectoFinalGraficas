@@ -1,4 +1,4 @@
 ﻿  main.cpp
-C:\Users\usuario\Desktop\openGLroot\ProyectoFinal\ProyectoFinal\main.cpp(58,22): warning C4244: 'argument': conversion from 'float' to 'GLint', possible loss of data
-C:\Users\usuario\Desktop\openGLroot\ProyectoFinal\ProyectoFinal\main.cpp(58,16): warning C4244: 'argument': conversion from 'float' to 'GLint', possible loss of data
+C:\Users\usuario\Desktop\openGLroot\ProyectoFinal\ProyectoFinal\main.cpp(59,22): warning C4244: 'argument': conversion from 'float' to 'GLint', possible loss of data
+C:\Users\usuario\Desktop\openGLroot\ProyectoFinal\ProyectoFinal\main.cpp(59,16): warning C4244: 'argument': conversion from 'float' to 'GLint', possible loss of data
   ProyectoFinal.vcxproj -> C:\Users\usuario\Desktop\openGLroot\ProyectoFinal\Debug\ProyectoFinal.exe

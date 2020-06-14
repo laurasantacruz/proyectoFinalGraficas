@@ -7,11 +7,12 @@
 #define SCREEN_HEIGHT 900
 
 void keyCallback(GLFWwindow* window, int key, int scancode, int action, int mods);
-//void DrawCube(GLfloat centerPosX, GLfloat centerPosY, GLfloat centerPosZ, GLfloat edgeLength);
 void DrawCube2(GLfloat centerPosX, GLfloat centerPosY, GLfloat centerPosZ, GLfloat edgeLength);
 void DrawCube3(GLfloat centerPosX, GLfloat centerPosY, GLfloat centerPosZ, GLfloat edgeLength);
 void DrawCuarto(GLfloat centerPosX, GLfloat centerPosY, GLfloat centerPosZ, GLfloat edgeLength);
 void DrawPuerta(GLfloat centerPosX, GLfloat centerPosY, GLfloat centerPosZ, GLfloat edgeLength);
+void DrawVentana(GLfloat centerPosX, GLfloat centerPosY, GLfloat centerPosZ, GLfloat edgeLength);
+
 
 GLfloat rotationX = 0.0f;
 GLfloat rotationY = 0.0f;
@@ -93,6 +94,7 @@ int main(void)
         DrawCube2(halfScreenWidth-100, halfScreenHeight-200, -600, 200);
         DrawCuarto(halfScreenWidth, halfScreenHeight, -600, 600);
         DrawPuerta(halfScreenWidth, halfScreenHeight-200, -374, 250);
+        DrawVentana(halfScreenWidth, halfScreenHeight - 200, -650, 100);
 
 
         glPopMatrix();
@@ -114,7 +116,6 @@ int main(void)
 // LLamar mandar las teclas
 void keyCallback(GLFWwindow* window, int key, int scancode, int action, int mods)
 {
-
 
     const GLfloat rotationSpeed = 10;
 
@@ -164,7 +165,39 @@ void keyCallback(GLFWwindow* window, int key, int scancode, int action, int mods
 }
 
 
+//funcion para dibujar la ventana
+void DrawVentana(GLfloat centerPosX, GLfloat centerPosY, GLfloat centerPosZ, GLfloat edgeLength) {
+    GLfloat halfSideLength = edgeLength * 0.5f;
 
+    GLfloat vertices[] =
+    {
+        //// Ventana
+        centerPosX + halfSideLength+240, centerPosY + halfSideLength+50, centerPosZ + halfSideLength-100, // Arriba Izquierda
+        centerPosX + halfSideLength+240, centerPosY + halfSideLength+50, centerPosZ - halfSideLength-100, // Arriba Derecha
+        centerPosX + halfSideLength+240, centerPosY - halfSideLength+50, centerPosZ - halfSideLength-100, // Abajo Derecha
+        centerPosX + halfSideLength+240, centerPosY - halfSideLength+50, centerPosZ + halfSideLength-100, // Abajo Izquierda
+    };
+    GLfloat colour[] = {
+           0.0, 0.0, 255.0,
+           0.0, 0.0, 255.0,
+           0.0, 0.0, 255.0,
+           0.0, 0.0, 255.0,
+    };
+
+    //glPolygonMode( GL_FRONT_AND_BACK, GL_LINE );
+    glEnable(GL_DEPTH_TEST);
+    glDepthMask(GL_TRUE);
+    glEnableClientState(GL_VERTEX_ARRAY);
+    glEnableClientState(GL_COLOR_ARRAY);
+    glVertexPointer(3, GL_FLOAT, 0, vertices);
+    glColorPointer(3, GL_FLOAT, 0, colour);
+    glDrawArrays(GL_QUADS, 0, 4);
+    glDisableClientState(GL_VERTEX_ARRAY);
+    glDisableClientState(GL_COLOR_ARRAY);
+}
+
+
+//funcion para dibujar el cuarto
 void DrawCuarto(GLfloat centerPosX, GLfloat centerPosY, GLfloat centerPosZ, GLfloat edgeLength)
 {
     GLfloat halfSideLength = edgeLength * 0.5f;
@@ -177,29 +210,11 @@ void DrawCuarto(GLfloat centerPosX, GLfloat centerPosY, GLfloat centerPosZ, GLfl
         centerPosX + halfSideLength, centerPosY - halfSideLength, centerPosZ + halfSideLength, // Abajo Derecha
         centerPosX - halfSideLength, centerPosY - halfSideLength, centerPosZ + halfSideLength, // Abajo Izquierda
 
-        // Cara Tracera
-        centerPosX - halfSideLength, centerPosY + halfSideLength, centerPosZ - halfSideLength, // Arriba Izquierda
-        centerPosX + halfSideLength, centerPosY + halfSideLength, centerPosZ - halfSideLength, // Arriba Derecha
-        centerPosX + halfSideLength, centerPosY - halfSideLength, centerPosZ - halfSideLength, // Abajo Derecha
-        centerPosX - halfSideLength, centerPosY - halfSideLength, centerPosZ - halfSideLength, // Abajo Izquierda
-
-        // Cara Izquierda
-        centerPosX - halfSideLength, centerPosY + halfSideLength, centerPosZ + halfSideLength, // Arriba Izquierda
-        centerPosX - halfSideLength, centerPosY + halfSideLength, centerPosZ - halfSideLength, // Arriba Dereccha
-        centerPosX - halfSideLength, centerPosY - halfSideLength, centerPosZ - halfSideLength, // Abajo Derecha
-        centerPosX - halfSideLength, centerPosY - halfSideLength, centerPosZ + halfSideLength, // Abajo Izquierda
-
         // Cara Derecha
         centerPosX + halfSideLength, centerPosY + halfSideLength, centerPosZ + halfSideLength, // Arriba Izquierda
         centerPosX + halfSideLength, centerPosY + halfSideLength, centerPosZ - halfSideLength, // Arriba Derecha
         centerPosX + halfSideLength, centerPosY - halfSideLength, centerPosZ - halfSideLength, // Abajo Derecha
         centerPosX + halfSideLength, centerPosY - halfSideLength, centerPosZ + halfSideLength, // Abajo Izquierda
-
-        // Cara Superior
-        centerPosX - halfSideLength, centerPosY + halfSideLength, centerPosZ + halfSideLength, // Arriba Izquierda
-        centerPosX - halfSideLength, centerPosY + halfSideLength, centerPosZ - halfSideLength, // Arriba Derecha
-        centerPosX + halfSideLength, centerPosY + halfSideLength, centerPosZ - halfSideLength, // Abajo Derecha
-        centerPosX + halfSideLength, centerPosY + halfSideLength, centerPosZ + halfSideLength, // Abajo Izquierda
 
         // Cara Inferior
         centerPosX - halfSideLength, centerPosY - halfSideLength, centerPosZ + halfSideLength, // Arriba Izquierda
@@ -207,14 +222,31 @@ void DrawCuarto(GLfloat centerPosX, GLfloat centerPosY, GLfloat centerPosZ, GLfl
         centerPosX + halfSideLength, centerPosY - halfSideLength, centerPosZ - halfSideLength, // Abajo Derecha
         centerPosX + halfSideLength, centerPosY - halfSideLength, centerPosZ + halfSideLength  // Abajo Izquierda
     };
+    GLfloat colour[] = {
+     0.0, 102.0, 204.0,
+     0.0, 102.0, 204.0,
+     0.0, 102.0, 204.0,
+     0.0, 102.0, 204.0,
+     0.0, 102.0, 204.0,
+     0.0, 102.0, 204.0,
+     0.0, 102.0, 204.0,
+     0.0, 102.0, 204.0,
+     255.0, 0.0, 102.0,
+     255.0, 0.0, 102.0,
+     255.0, 0.0, 102.0,
+     255.0, 0.0, 102.0,
+    };
 
-    glPolygonMode(GL_FRONT_AND_BACK, GL_LINE);
+    //glPolygonMode(GL_FRONT_AND_BACK, GL_LINE);
     glEnableClientState(GL_VERTEX_ARRAY);
+    glEnableClientState(GL_COLOR_ARRAY);
     glVertexPointer(3, GL_FLOAT, 0, vertices);
+    glColorPointer(3, GL_FLOAT, 0, colour);
 
-    glDrawArrays(GL_QUADS, 0, 24);
+    glDrawArrays(GL_QUADS, 0, 12);
 
     glDisableClientState(GL_VERTEX_ARRAY);
+    glDisableClientState(GL_COLOR_ARRAY);
 }
 
 
@@ -235,26 +267,6 @@ void DrawPuerta(GLfloat centerPosX, GLfloat centerPosY, GLfloat centerPosZ, GLfl
        153.0, 77.0, 0.0,
        153.0, 77.0, 0.0,
        153.0, 77.0, 0.0,
-       153.0, 77.0, 0.0,
-       153.0, 77.0, 0.0,
-       153.0, 77.0, 0.0,
-       153.0, 77.0, 0.0,
-       153.0, 77.0, 0.0,
-       153.0, 77.0, 0.0,
-       153.0, 77.0, 0.0,
-       153.0, 77.0, 0.0,
-       153.0, 77.0, 0.0,
-       153.0, 77.0, 0.0,
-       153.0, 77.0, 0.0,
-       153.0, 77.0, 0.0,
-       153.0, 77.0, 0.0,
-       153.0, 77.0, 0.0,
-       153.0, 77.0, 0.0,
-       153.0, 77.0, 0.0,
-       153.0, 77.0, 0.0,
-       153.0, 77.0, 0.0,
-       153.0, 77.0, 0.0,
-       153.0, 77.0, 0.0,
     };
 
     //glPolygonMode( GL_FRONT_AND_BACK, GL_LINE );
@@ -264,7 +276,7 @@ void DrawPuerta(GLfloat centerPosX, GLfloat centerPosY, GLfloat centerPosZ, GLfl
     glEnableClientState(GL_COLOR_ARRAY);
     glVertexPointer(3, GL_FLOAT, 0, vertices);
     glColorPointer(3, GL_FLOAT, 0, colour);
-    glDrawArrays(GL_QUADS, 0, 24);
+    glDrawArrays(GL_QUADS, 0, 4);
     glDisableClientState(GL_VERTEX_ARRAY);
     glDisableClientState(GL_COLOR_ARRAY);
 }
@@ -277,7 +289,7 @@ void DrawCube2(GLfloat centerPosX, GLfloat centerPosY, GLfloat centerPosZ, GLflo
 
     GLfloat vertices[] =
     {
-        //// una pata de la mesa
+        //// patas de la mesa
         // Cara Frontal
         centerPosX - halfSideLength + 50, centerPosY  , centerPosZ + 70, // Arriba Izquierda
         centerPosX + halfSideLength - 50, centerPosY , centerPosZ + 70, // Arriba Derecha
@@ -300,22 +312,6 @@ void DrawCube2(GLfloat centerPosX, GLfloat centerPosY, GLfloat centerPosZ, GLflo
            153.0, 77.0, 0.0,
            153.0, 77.0, 0.0,
            153.0, 77.0, 0.0,
-           153.0, 77.0, 0.0,
-           153.0, 77.0, 0.0,
-           153.0, 77.0, 0.0,
-           153.0, 77.0, 0.0,
-           153.0, 77.0, 0.0,
-           153.0, 77.0, 0.0,
-           153.0, 77.0, 0.0,
-           153.0, 77.0, 0.0,
-           153.0, 77.0, 0.0,
-           153.0, 77.0, 0.0,
-           153.0, 77.0, 0.0,
-           153.0, 77.0, 0.0,
-           153.0, 77.0, 0.0,
-           153.0, 77.0, 0.0,
-           153.0, 77.0, 0.0,
-           153.0, 77.0, 0.0,
     };
 
     //glPolygonMode( GL_FRONT_AND_BACK, GL_LINE );
@@ -325,7 +321,7 @@ void DrawCube2(GLfloat centerPosX, GLfloat centerPosY, GLfloat centerPosZ, GLflo
     glEnableClientState(GL_COLOR_ARRAY);
     glVertexPointer(3, GL_FLOAT, 0, vertices);
     glColorPointer(3, GL_FLOAT, 0, colour);
-    glDrawArrays(GL_QUADS, 0, 24);
+    glDrawArrays(GL_QUADS, 0, 8);
     glDisableClientState(GL_VERTEX_ARRAY);
     glDisableClientState(GL_COLOR_ARRAY);
 
