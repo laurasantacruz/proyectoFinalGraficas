@@ -4,6 +4,7 @@ A01196377
 
 Proyecto Final Graficas Computacionales
 Escena de un cuarto
+Imagine que el circulo es un sol...jajaj
 
 Teclas para Rotar:
 KEY UP
@@ -43,6 +44,7 @@ void DrawVentana(GLfloat centerPosX, GLfloat centerPosY, GLfloat centerPosZ, GLf
 void DrawCircle(GLfloat x, GLfloat y, GLfloat z, GLfloat radius, GLint numberOfSides);
 void DrawChair(GLfloat centerPosX, GLfloat centerPosY, GLfloat centerPosZ, GLfloat edgeLength);
 void DrawPerilla(GLfloat centerPosX, GLfloat centerPosY, GLfloat centerPosZ, GLfloat edgeLength);
+void DrawCortina(GLfloat centerPosX, GLfloat centerPosY, GLfloat centerPosZ, GLfloat edgeLength);
 
 
 GLfloat rotationX = 0.0f;
@@ -65,7 +67,7 @@ int main(void)
     }
 
     // Crear la ventana
-    window = glfwCreateWindow(SCREEN_WIDTH, SCREEN_HEIGHT, "Modelo GLUT", NULL, NULL);
+    window = glfwCreateWindow(SCREEN_WIDTH, SCREEN_HEIGHT, "Proyecto Final", NULL, NULL);
 
     // Declarar que se recibirán comando del teclado
     glfwSetKeyCallback(window, keyCallback);
@@ -129,6 +131,7 @@ int main(void)
         DrawCircle(SCREEN_WIDTH/2, SCREEN_HEIGHT, 0, 120, 360);
         DrawChair(halfScreenWidth - 5, halfScreenHeight - 200, -600, 200);
         DrawPerilla(halfScreenWidth-35, halfScreenHeight-200, -374, 250);
+        DrawCortina(halfScreenWidth+30, halfScreenHeight - 200, -670, 100);
 
 
         glPopMatrix();
@@ -241,6 +244,48 @@ void DrawVentana(GLfloat centerPosX, GLfloat centerPosY, GLfloat centerPosZ, GLf
     glDisableClientState(GL_COLOR_ARRAY);
 }
 
+
+void DrawCortina(GLfloat centerPosX, GLfloat centerPosY, GLfloat centerPosZ, GLfloat edgeLength) {
+    GLfloat halfSideLength = edgeLength * 0.2f;
+
+    GLfloat vertices[] =
+    {
+        //// Cortina para la ventana dentro del cuarto lada izquierdo
+        centerPosX + halfSideLength + 228, centerPosY + halfSideLength + 142, centerPosZ + halfSideLength - 142, // Arriba Izquierda
+        centerPosX + halfSideLength + 228, centerPosY + halfSideLength + 142, centerPosZ - halfSideLength - 142, // Arriba Derecha
+        centerPosX + halfSideLength + 228, centerPosY - halfSideLength + 25, centerPosZ - halfSideLength - 142, // Abajo Derecha
+        centerPosX + halfSideLength + 228, centerPosY - halfSideLength + 25, centerPosZ + halfSideLength - 142, // Abajo Izquierda
+
+        //// Cortina para la ventana dentro del cuarto lada derecho
+        centerPosX + halfSideLength + 228, centerPosY + halfSideLength + 142, centerPosZ + halfSideLength, // Arriba Izquierda
+        centerPosX + halfSideLength + 228, centerPosY + halfSideLength + 142, centerPosZ - halfSideLength, // Arriba Derecha
+        centerPosX + halfSideLength + 228, centerPosY - halfSideLength + 25, centerPosZ - halfSideLength, // Abajo Derecha
+        centerPosX + halfSideLength + 228, centerPosY - halfSideLength + 25, centerPosZ + halfSideLength, // Abajo Izquierda
+
+
+    };
+    GLfloat colour[] = {
+           255.0, 0.0, 0.0,
+           255.0, 0.0, 0.0,
+           255.0, 0.0, 0.0,
+           255.0, 0.0, 0.0,
+           255.0, 0.0, 0.0,
+           255.0, 0.0, 0.0,
+           255.0, 0.0, 0.0,
+           255.0, 0.0, 0.0,
+    };
+
+    //glPolygonMode( GL_FRONT_AND_BACK, GL_LINE );
+    glEnable(GL_DEPTH_TEST);
+    glDepthMask(GL_TRUE);
+    glEnableClientState(GL_VERTEX_ARRAY);
+    glEnableClientState(GL_COLOR_ARRAY);
+    glVertexPointer(3, GL_FLOAT, 0, vertices);
+    glColorPointer(3, GL_FLOAT, 0, colour);
+    glDrawArrays(GL_QUADS, 0, 8);
+    glDisableClientState(GL_VERTEX_ARRAY);
+    glDisableClientState(GL_COLOR_ARRAY);
+}
 
 
 
