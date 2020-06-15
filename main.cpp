@@ -2,23 +2,26 @@
 Laura Santacruz Mayorga
 A01196377
 
-Proyecto Final Graficas Computacionales
+Proyecto Final de Graficas Computacionales
+Junio 15, 2020
+
+
 Escena de un cuarto
 Imagine que el circulo es un sol...jajaj
 
-Teclas para Rotar:
+Teclas para Rotar la escena:
 KEY UP
 KEY DOWN
 KEY LEFT
 KEY RIGHT 
 
-Teclas para trasladar:
+Teclas para trasladar la escena:
 A - mover a la derecha
 S - mover a la izquierda
 W - mover para arriba
 X - mover para abajo
 
-Teclas para escalar:
+Teclas para escalar a la escena:
 J - zoom in
 K -zoom out
 */
@@ -203,7 +206,6 @@ void keyCallback(GLFWwindow* window, int key, int scancode, int action, int mods
 
 
 //funcion para dibujar la ventana
-//TO DO: poner como tipo barrotes a la ventana
 void DrawVentana(GLfloat centerPosX, GLfloat centerPosY, GLfloat centerPosZ, GLfloat edgeLength) {
     GLfloat halfSideLength = edgeLength * 0.8f;
 
