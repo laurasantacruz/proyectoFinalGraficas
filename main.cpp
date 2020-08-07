@@ -7,7 +7,6 @@ Junio 15, 2020
 
 
 Escena de un cuarto
-Imagine que el circulo es un sol...jajaj
 
 Teclas para Rotar la escena:
 KEY UP
@@ -63,7 +62,7 @@ int main(void)
 {
     GLFWwindow* window;
 
-    // Inicializar la librerÌa
+    // Inicializar la librer√≠a
     if (!glfwInit())
     {
         return -1;
@@ -72,7 +71,7 @@ int main(void)
     // Crear la ventana
     window = glfwCreateWindow(SCREEN_WIDTH, SCREEN_HEIGHT, "Proyecto Final", NULL, NULL);
 
-    // Declarar que se recibir·n comando del teclado
+    // Declarar que se recibir√°n comando del teclado
     glfwSetKeyCallback(window, keyCallback);
     glfwSetInputMode(window, GLFW_STICKY_KEYS, 1);
 
@@ -92,11 +91,11 @@ int main(void)
     // Se crea el contexto de la ventana
     glfwMakeContextCurrent(window);
 
-    glViewport(0.0f, 0.0f, screenWidth, screenHeight); // EspecÌfica en que parte de la ventana se dibujaran los elementos
-    glMatrixMode(GL_PROJECTION); // Se crea la matriz de proyecciÛn
+    glViewport(0.0f, 0.0f, screenWidth, screenHeight); // Espec√≠fica en que parte de la ventana se dibujaran los elementos
+    glMatrixMode(GL_PROJECTION); // Se crea la matriz de proyecci√≥n
     glLoadIdentity(); // Se crea de la matriz identidad
     glOrtho(0, SCREEN_WIDTH, 0, SCREEN_HEIGHT, 0, 1000); // Establecer el sistema de coordenadas
-    glMatrixMode(GL_MODELVIEW); // Matriz de transformaciÛn
+    glMatrixMode(GL_MODELVIEW); // Matriz de transformaci√≥n
 
 
     // Se establece el sistema de coordenadas dentro de la ventana
@@ -104,7 +103,7 @@ int main(void)
     GLfloat halfScreenHeight = SCREEN_HEIGHT / 2;
 
 
-    // Loop en donde se estar· dibujando la ventana
+    // Loop en donde se estar√° dibujando la ventana
     while (!glfwWindowShouldClose(window))
     {
         glClear(GL_COLOR_BUFFER_BIT);
@@ -114,7 +113,7 @@ int main(void)
 
         glPushMatrix();
         glTranslatef(halfScreenWidth, halfScreenHeight, -500); // Coloca el cubo al centro de la pantalla
-        glTranslated(translationX, translationY, 0); // Mueve el cubo con las variables de las teclas (Vector de TraslaciÛn
+        glTranslated(translationX, translationY, 0); // Mueve el cubo con las variables de las teclas (Vector de Traslaci√≥n
         //vector de escalado
         glScalef(
             escalateX,
